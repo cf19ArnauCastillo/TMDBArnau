@@ -38,10 +38,9 @@ public class AddMovieListsRecyclerViewAdapter extends RecyclerView.Adapter<AddMo
     RecyclerView recyclerView;
 
     public AddMovieListsRecyclerViewAdapter(ArrayList<List> arrN, Context c){
-        this.arrayList = arrN;
         this.context = c;
+        this.arrayList = arrN;
     }
-
 
     @NonNull
     @Override
@@ -77,10 +76,9 @@ public class AddMovieListsRecyclerViewAdapter extends RecyclerView.Adapter<AddMo
 
                 recyclerView = alertCustomdialog.findViewById(R.id.recyclerList);
 
-                //#region ApiCall getLists
+                //ApiCall getLists
                 ApiCall apiCall = retrofit.create(ApiCall.class);
                 Log.i("id", "" + arrayList.get(i).getId());
-                /*Call<ListDetails> call = apiCall.getMoviesOfList();*/
                 Call<ListDetails> call = apiCall.getMoviesOfList(String.valueOf(arrayList.get(i).getId()), API_KEY);
 
                 call.enqueue(new Callback<ListDetails>(){

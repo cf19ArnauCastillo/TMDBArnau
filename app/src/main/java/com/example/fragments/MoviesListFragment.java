@@ -34,10 +34,6 @@ public class MoviesListFragment extends Fragment {
     public View view;
     RecyclerView recyclerView;
 
-    public MoviesListFragment() {
-        // Required empty public constructor
-    }
-
     public MoviesListFragment(String title) {
         this.sectionTitle = title;
     }
@@ -62,7 +58,7 @@ public class MoviesListFragment extends Fragment {
                     Log.i("MoviesListFragment", "error");
                     return;
                 }else {
-                    Log.i("MoviesListFragment", "bien");
+                    Log.i("MoviesListFragment", "good");
                     ArrayList<Film> arraySearch = new ArrayList<>();
                     arraySearch = response.body().getResults();
                     callRecycler(arraySearch);

@@ -53,8 +53,6 @@ public class ListFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,7 +70,7 @@ public class ListFragment extends Fragment {
                     Log.i("ListFragment", "error");
                     return;
                 }else {
-                    Log.i("ListFragment", "bien");
+                    Log.i("ListFragment", "good");
                     ArrayList<List> arrayList = new ArrayList<>();
                     arrayList = response.body().getResults();
                     callRecycler(arrayList);
@@ -126,9 +124,6 @@ public class ListFragment extends Fragment {
         });
     }
 
-
-
-
     public void createList(String name, String description){
         ListRequest request = new ListRequest(name, description);
         ApiCall apiCall = retrofit.create(ApiCall.class);
@@ -138,20 +133,19 @@ public class ListFragment extends Fragment {
             @Override
             public void onResponse(Call<ListResponse> call, Response<ListResponse> response) {
                 if(response.code()!=201){
-                    Log.i("testApi", "checkConnection");
+                    Log.i("testApi", "checkConn");
                     return;
                 }else {
-                    Log.i("crear llista", "añadido correctamente");
+                    Log.i("create list", "added");
                 }
             }
 
             @Override
             public void onFailure(Call<ListResponse> call, Throwable t) {
-                Log.i("crear llista", "error");
+                Log.i("create list", "error");
             }
         });
     }
-
     public void callRecycler(ArrayList<List> arrayList){
         AddMovieListsRecyclerViewAdapter adapter = new AddMovieListsRecyclerViewAdapter(arrayList, getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

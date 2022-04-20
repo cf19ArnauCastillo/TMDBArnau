@@ -60,7 +60,7 @@ public class SearchFragment extends Fragment {
                         @Override
                         public void onResponse(Call<searchFilmModel> call, Response<searchFilmModel> response) {
                             if(response.code()!=200){
-                                Log.i("testApi", "checkConnection");
+                                Log.i("testApi", "checkConn");
                                 return;
                             }else {
                                 ArrayList<Film> arraySearch = new ArrayList<>();

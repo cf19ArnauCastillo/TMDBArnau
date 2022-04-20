@@ -64,14 +64,14 @@ public class DetailFragment extends Fragment {
         TextView txtDetailTitle = view.findViewById(R.id.txtDetailTitle);
         TextView txtDetailDesc = view.findViewById(R.id.txtDetailDesc);
         ImageView imgDetail = view.findViewById(R.id.imgDetail);
+
         ImageButton btnFav = view.findViewById(R.id.btnFav);
         ImageButton btnAddtoList = view.findViewById(R.id.btnAddtoList);
 
         txtDetailTitle.setText(film.getOriginal_title());
         txtDetailDesc.setText(film.getOverview());
 
-        // Setea si es favorito
-        //#region ApiCalll GetFavorites
+        //ApiCalll GetFavorites
         ApiCall apiCall = retrofit.create(ApiCall.class);
         Call<searchFilmModel> call = apiCall.getFavorites(API_KEY, SESSION_ID);
 
@@ -82,7 +82,7 @@ public class DetailFragment extends Fragment {
                     Log.i("MoviesListFragment", "error");
                     return;
                 } else {
-                    Log.i("MoviesListFragment", "bien");
+                    Log.i("MoviesListFragment", "good");
                     ArrayList<Film> arraySearch = new ArrayList<>();
                     arraySearch = response.body().getResults();
                     if(arraySearch.size() != 0) {
@@ -101,7 +101,6 @@ public class DetailFragment extends Fragment {
                 Log.i("MoviesListFragment", "error");
             }
         });
-        //#endregion ApiCalll GetFavorites
 
         GlideApp.with(getContext())
                 .load(BASE_IMG_URL + film.getPoster_path())
@@ -120,10 +119,10 @@ public class DetailFragment extends Fragment {
                     @Override
                     public void onResponse(Call<FavFilmResponse> call, Response<FavFilmResponse> response) {
                         if(response.code()!=201){
-                            Log.i("testApi", "checkConnection");
+                            Log.i("testApi", "checkConn");
                             return;
                         }else {
-                            Log.i("DetailFragment", "añadido correctamente");
+                            Log.i("DetailFragment", "added");
                         }
                     }
 
@@ -142,9 +141,7 @@ public class DetailFragment extends Fragment {
             }
         });
 
-
         return view;
-
     }
 
     public void showDialog(){
@@ -163,7 +160,7 @@ public class DetailFragment extends Fragment {
 
         recyclerView = alertCustomdialog.findViewById(R.id.recyclerList);
 
-        //#region ApiCall getLists
+        //ApiCall getLists
         ApiCall apiCall = retrofit.create(ApiCall.class);
         Call<ListModel> call = apiCall.getLists(API_KEY, SESSION_ID);
 
@@ -174,7 +171,7 @@ public class DetailFragment extends Fragment {
                     Log.i("ListFragment", "error");
                     return;
                 }else {
-                    Log.i("ListFragment", "bien");
+                    Log.i("ListFragment", "good");
                     arrayList = response.body().getResults();
                     callRecycler(arrayList);
                     Log.i("ListFragment results", "length: " + arrayList.size());
@@ -186,8 +183,6 @@ public class DetailFragment extends Fragment {
                 Log.i("MoviesListFragment", "error");
             }
         });
-        //#endregion ApiCall getLists
-
     }
     public void callRecycler(ArrayList<List> arrayList){
         AddMovieListsRecyclerViewAdapter adapter = new AddMovieListsRecyclerViewAdapter(arrayList, getContext());
