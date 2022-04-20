@@ -1,19 +1,24 @@
 package com.example.fragments.Model.List;
 
 public class List {
-    public String title;
-    public int count;
+    public String name;
+    public int id;
+    public int item_count;
 
-    public List(String title, int count) {
-        this.title = title;
-        this.count = count;
+
+    public List(String name, int item_count) {
+        this.name = name;
+        this.item_count = item_count;
+    }
+    public String getName() {
+        return name;
     }
 
-    public String getTitle() {
-        return title;
+    public int getId() {
+        return id;
     }
 
     public int getCount() {
-        return count;
+        return item_count;
     }
 }

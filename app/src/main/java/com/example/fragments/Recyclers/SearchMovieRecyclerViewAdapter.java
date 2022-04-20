@@ -47,9 +47,9 @@ public class SearchMovieRecyclerViewAdapter extends RecyclerView.Adapter<SearchM
         holder.titleMovie.setText(arrayMovies.get(i).getOriginal_title());
         String imageURL = BASE_IMG_URL + arrayMovies.get(i).getPoster_path();
         GlideApp.with(context)
-                    .load(imageURL)
-                    .centerCrop()
-                    .into(holder.imgMovie);
+                .load(imageURL)
+                .centerCrop()
+                .into(holder.imgMovie);
 
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
@@ -93,4 +93,3 @@ public class SearchMovieRecyclerViewAdapter extends RecyclerView.Adapter<SearchM
 
     }
 }
-

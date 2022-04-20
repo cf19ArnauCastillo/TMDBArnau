@@ -5,9 +5,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DefaultConstants {
 
-    public static final String API_KEY = "9d3d87dfab03093a4a78ce77f8b3072b";
-    public static final String SESSION_ID = "919a1e6fca739322967249671e19562dfb9bb689";
-    public static final String ACCOUNT_ID = "martamill3";
+    public static final String API_KEY = "aa097aa721a927fce689e12fed1d47c3";
+    //AQUI TIENES QUE SEGUIR
+    public static final String SESSION_ID = "fa97e30674cf87b33afc172a2884fc1f37700f1b";
+    public static final String ACCOUNT_ID = "ArnauCastillo";
 
     public static final String BASE_IMG_URL = "https://image.tmdb.org/t/p/w500/";
 
